@@ -1,0 +1,20 @@
+{
+  "name": "iso8601-convert",
+  "version": "1.0.0",
+  "description": "Convert between ISO8601 strings and Date objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "iso8601",
+    "date",
+    "parse",
+    "convert"
+  ],
+  "author": "Fionn Kelleher <me@fionn.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
