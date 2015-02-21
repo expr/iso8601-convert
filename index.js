@@ -15,6 +15,10 @@ function toDate(string) {
 
     var d = string.match(new RegExp(regexp))
 
+    if (d === null) {
+        return null
+    }
+
     var offset = 0
     var date = new Date(d[1], 0, 1)
 
