@@ -15,5 +15,5 @@ var iso8601 = require('iso8601-convert')
 // convert ISO 8601 date string to Date object
 console.log(iso8601.toDate('2012-05-21T23:32:12.419Z'))
 // convert Date object to ISO 8601 date string
-console.log(iso8601.fromDate(Date.now()))
+console.log(iso8601.fromDate(new Date))
 ```
