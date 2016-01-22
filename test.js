@@ -14,6 +14,13 @@ describe('#toDate()', function() {
         assert.equal(plusOne.getTime(), plusTwo.getTime())
     })
 
+    it('handles time zone offsets short offset notation', function() {
+        var plusOneShort = iso8601.toDate('2012-12-12T08:00:00+0100')
+        var plusOneLong = iso8601.toDate('2012-12-12T08:00:00+01:00')
+
+        assert.equal(plusOneShort.getTime(), plusOneLong.getTime())
+    })
+
     it('handles minutes in time zone offsets', function() {
         var plusOne = iso8601.toDate('2012-04-09T08:00:00Z')
         var plusTwo = iso8601.toDate('2012-04-09T05:30:00-02:30')
