@@ -5,11 +5,22 @@ describe('#toDate()', function() {
     it('converts properly formed ISO8601 strings', function() {
         var date = new Date(1325471624000)
         assert.equal(iso8601.fromDate(date), '2012-01-02T02:33:44Z')
+        dateWithT = iso8601.toDate('2012-01-02T02:33:44Z')
+        assert.equal(date.getTime(), dateWithT.getTime())
+        dateWithoutT = iso8601.toDate('2012-01-02T02:33:44Z')
+        assert.equal(date.getTime(), dateWithoutT.getTime())
     })
 
     it('handles time zone offsets', function() {
         var plusOne = iso8601.toDate('2012-12-12T08:00:00+01:00')
         var plusTwo = iso8601.toDate('2012-12-12T09:00:00+02:00')
+
+        assert.equal(plusOne.getTime(), plusTwo.getTime())
+    })
+
+    it('handles time zone offsets without minutes', function() {
+        var plusOne = iso8601.toDate('2012-12-12T08:00:00+01')
+        var plusTwo = iso8601.toDate('2012-12-12T09:00:00+02')
 
         assert.equal(plusOne.getTime(), plusTwo.getTime())
     })

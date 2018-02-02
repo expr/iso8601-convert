@@ -10,8 +10,8 @@ function padInteger(num, length) {
 
 function toDate(string) {
     var regexp = '([0-9]{4})(-([0-9]{2})(-([0-9]{2})' +
-        '(T([0-9]{2}):([0-9]{2})(:([0-9]{2})(\\.([0-9]+))?)?' +
-        '(Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?'
+        '([T ]([0-9]{2}):([0-9]{2})(:([0-9]{2})(\\.([0-9]+))?)?' +
+        '(Z|(([-+])([0-9]{2})(:([0-9]{2}))?))?)?)?)?'
 
     var d = string.match(new RegExp(regexp))
 
@@ -47,7 +47,10 @@ function toDate(string) {
     }
 
     if (d[14]) {
-        offset = (d[16] * 60) + parseInt(d[17], 10)
+        offset = (d[16] * 60)
+        if (d[18]) {
+            offset += parseInt(d[18], 10)
+        }
         offset *= ((d[15] === '-') ? 1 : -1)
     }
 
