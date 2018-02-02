@@ -5,6 +5,10 @@ describe('#toDate()', function() {
     it('converts properly formed ISO8601 strings', function() {
         var date = new Date(1325471624000)
         assert.equal(iso8601.fromDate(date), '2012-01-02T02:33:44Z')
+        dateWithT = iso8601.toDate('2012-01-02T02:33:44Z')
+        assert.equal(date.getTime(), dateWithT.getTime())
+        dateWithoutT = iso8601.toDate('2012-01-02T02:33:44Z')
+        assert.equal(date.getTime(), dateWithoutT.getTime())
     })
 
     it('handles time zone offsets', function() {
